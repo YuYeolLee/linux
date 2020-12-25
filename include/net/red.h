@@ -168,12 +168,18 @@ static inline void red_set_vars(struct red_vars *v)
 	v->qcount	= -1;
 }
 
+<<<<<<< HEAD
 static inline bool red_check_params(u32 qth_min, u32 qth_max, u8 Wlog,
 				    u8 Scell_log, u8 *stab)
+=======
+static inline bool red_check_params(u32 qth_min, u32 qth_max, u8 Wlog, u8 Scell_log)
+>>>>>>> bd1248f1ddbc... net: sched: prevent invalid Scell_log shift count
 {
 	if (fls(qth_min) + Wlog >= 32)
 		return false;
 	if (fls(qth_max) + Wlog >= 32)
+		return false;
+	if (Scell_log >= 32)
 		return false;
 	if (Scell_log >= 32)
 		return false;

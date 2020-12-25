@@ -647,7 +647,11 @@ static int sfq_change(struct Qdisc *sch, struct nlattr *opt)
 	}
 
 	if (ctl_v1 && !red_check_params(ctl_v1->qth_min, ctl_v1->qth_max,
+<<<<<<< HEAD
 					ctl_v1->Wlog, ctl_v1->Scell_log, NULL))
+=======
+					ctl_v1->Wlog, ctl_v1->Scell_log))
+>>>>>>> bd1248f1ddbc... net: sched: prevent invalid Scell_log shift count
 		return -EINVAL;
 	if (ctl_v1 && ctl_v1->qth_min) {
 		p = kmalloc(sizeof(*p), GFP_KERNEL);
